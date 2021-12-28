@@ -1,0 +1,290 @@
+<form class="usuariosForm"
+  ngNativeValidate
+  [formGroup]="nuevoUsuarioForm"
+  (ngSubmit)="nuevoUsuarioForm.valid && enviarDatos()"
+>
+  <mat-card class="mat-elevation-z0 usuariosContainer">
+    <mat-card-header>
+      <mat-card-title>DATOS DEL ESTABLECIMIENTO Y USUARIO / PACIENTE </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>INSTITUCION DEL SISTEMA</mat-label>
+            <input
+              matInput
+              placeholder=""
+              formControlName="instituto"
+            />
+            <mat-error
+              *ngIf="nuevoUsuarioForm.controls['instituto'].hasError('required')"
+            >
+              Nombre Institucion <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>UNICODIGO</mat-label>
+            <input
+              matInput
+              placeholder=""
+              formControlName="unicodigo"
+            />
+            <mat-error
+              *ngIf="nuevoUsuarioForm.controls['unicodigo'].hasError('required')"
+            >
+              Ingrese codigo
+            </mat-error>
+            <mat-error
+            *ngIf="nuevoUsuarioForm.controls.unicodigo.errors?.pattern"
+          >
+            Ingrese solo digitos
+          </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>ESTABLECIMIENTO SALUD</mat-label>
+            <input
+              matInput
+              placeholder=""
+              formControlName="establecimiento"
+            />
+            <mat-error
+              *ngIf="nuevoUsuarioForm.controls['establecimiento'].hasError('required')"
+            >
+              Nombre del Establecimiento <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>NÚMERO DE ARCHIVO</mat-label>
+            <input
+              matInput
+              placeholder=""
+              formControlName="archivo"
+            />
+            <mat-error
+              *ngIf="nuevoUsuarioForm.controls['archivo'].hasError('required')"
+            >
+              Ingrese numero del archivo
+            </mat-error>
+            <mat-error
+            *ngIf="nuevoUsuarioForm.controls.archivo.errors?.pattern"
+          >
+            valido solo numeros
+          </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>No.HOJA</mat-label>
+            <input
+              matInput
+              placeholder=""
+              formControlName="hoja"
+            />
+            <mat-error
+              *ngIf="nuevoUsuarioForm.controls['hoja'].hasError('required')"
+            >
+              Ingrese numero de hoja
+            </mat-error>
+            <mat-error
+            *ngIf="nuevoUsuarioForm.controls.hoja.errors?.pattern"
+          >
+            Ingrese solo numeros
+          </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>NÚMERO DE CEDULA</mat-label>
+            <input
+              matInput
+              placeholder=""
+              formControlName="cedula"
+            />
+            <mat-error
+              *ngIf="nuevoUsuarioForm.controls['cedula'].hasError('required')"
+            >
+              Ingrese un número de cédula
+            </mat-error>
+            <mat-error
+              *ngIf="nuevoUsuarioForm.controls.cedula.errors?.minlength"
+            >
+              Ingrese 10 dígitos mínimo
+            </mat-error>
+            <mat-error
+              *ngIf="nuevoUsuarioForm.controls.cedula.errors?.maxlength"
+            >
+              Ingrese 10 números máximo
+            </mat-error>
+            <mat-error
+              *ngIf="nuevoUsuarioForm.controls['cedula'].hasError('pattern')"
+            >
+              Solo números
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>PRIMER APELLIDO</mat-label>
+            <input
+              matInput
+              placeholder=""
+              formControlName="apellido"
+            />
+            <mat-error
+              *ngIf="nuevoUsuarioForm.controls['apellido'].hasError('required')"
+            >
+              El apellido es <strong>requerido</strong>
+            </mat-error>
+            <mat-error
+            *ngIf="nuevoUsuarioForm.controls.apellido.errors?.pattern"
+          >
+            Ingrese solo letras sin espacio
+          </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>SEGUNDO APELLIDO</mat-label>
+            <input
+              matInput
+              placeholder=""
+              formControlName="seg_apellido"
+            />
+            <mat-error
+              *ngIf="nuevoUsuarioForm.controls['seg_apellido'].hasError('required')"
+            >
+              El segundo apellido es <strong>requerido</strong>
+            </mat-error>
+            <mat-error
+            *ngIf="nuevoUsuarioForm.controls.seg_apellido.errors?.pattern"
+          >
+            Ingrese solo letras sin espacio
+          </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>PRIMER NOMBRE</mat-label>
+            <input matInput placeholder="" formControlName="nombre" />
+            <mat-error
+              *ngIf="nuevoUsuarioForm.controls['nombre'].hasError('required')"
+            >
+              El nombre es <strong>requerido</strong>
+            </mat-error>
+            <mat-error
+            *ngIf="nuevoUsuarioForm.controls.nombre.errors?.pattern"
+          >
+            Ingrese solo letras sin espacio
+          </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>SEGUNDO NOMBRE</mat-label>
+            <input matInput placeholder="" formControlName="seg_nombre" />
+            <mat-error
+              *ngIf="nuevoUsuarioForm.controls['seg_nombre'].hasError('required')"
+            >
+              El segundo nombre es <strong>requerido</strong>
+            </mat-error>
+            <mat-error
+            *ngIf="nuevoUsuarioForm.controls.nombre.errors?.pattern"
+          >
+            Ingrese solo letras sin espacio
+          </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>SEXO</mat-label>
+            <input matInput placeholder="" formControlName="sexo" />
+            <mat-error
+              *ngIf="nuevoUsuarioForm.controls['sexo'].hasError('required')"
+            >
+             Ingrese el sexo
+            </mat-error>
+            <mat-error
+            *ngIf="nuevoUsuarioForm.controls.sexo.errors?.pattern"
+          >
+            Ingrese solo letras sin espacio
+          </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>EDAD</mat-label>
+            <input
+              matInput
+              placeholder=""
+              formControlName="edad"
+            />
+            <mat-error
+              *ngIf="nuevoUsuarioForm.controls['edad'].hasError('required')"
+            >
+              Ingrese la edad
+            </mat-error>
+            <mat-error
+            *ngIf="nuevoUsuarioForm.controls.edad.errors?.pattern"
+          >
+            Ingrese solo numeros
+          </mat-error>
+          <mat-error
+          *ngIf="nuevoUsuarioForm.controls.edad.errors?.minlength"
+        >
+          Ingrese 1 dígito mínimo
+        </mat-error>
+        <mat-error
+          *ngIf="nuevoUsuarioForm.controls.edad.errors?.maxlength"
+        >
+          Ingrese 2 números máximo
+        </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions style="text-align: center">
+      <button mat-raised-button type="submit">Guardar</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+
